@@ -1,0 +1,43 @@
+
+
+
+
+
+.soc-track { 
+background: transparent;
+/*
+border:solid #ddd 2px; 
+border:solid #4e4e4e 2px; 
+*/
+border:solid #7b7996 2px; 
+padding: 24px; 
+border-radius: 22px; margin: 15px; width:250px; height:265px;
+text-align:center;
+transition: all 0.2s ease;
+}
+
+
+
+
+
+
+.s200 h6 { color: #5cd6ed; }
+
+
+
+
+.s200:hover { background: #5cd6ed; color: #fff; border-color: #5cd6ed; cursor: pointer; }
+
+
+
+
+
+.s200:hover h6 { color: #fff; }
+
+
+
+@media only screen and (max-width: 790px) {
+    .pen-track, .web-track, .exp-track, .soc-track { 
+        height:310px;
+    }
+}

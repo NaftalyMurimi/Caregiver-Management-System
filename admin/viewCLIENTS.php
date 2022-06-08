@@ -24,7 +24,7 @@ $result = mysqli_query($con,"SELECT * FROM clients");
             <div class="col-lg-12 ">
         
     
-           Project documents List
+          <h2> Registered List</h2>
             
             </div> 
             <hr/>

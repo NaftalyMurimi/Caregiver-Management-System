@@ -7,9 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-<div class="container-fluid bg-light mb-0">
-<!-- <div class="row align-items-center "> -->
-			<h2 class="text-center "> Care Giving Management System</h2>
-		</div>
+    <div class="h3">welcome</div>
+    
 </body>
 </html>
