@@ -53,46 +53,72 @@ return true;
 
 </script>
 <body>
-	<div class="row">
+	<div class="container">
 			<h2 align="center">Care Giving Management System</h2>
-	<hr />
-		<div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-4">
-			<div class="login-panel panel panel-default">
+			<hr />
+			<div class="col-8">
+			<div class="login-panel panel panel-default col-5">
 				<div class="panel-heading">Sign Up</div>
 				<div class="panel-body">
-					<form role="form" action="" method="post" id="" name="signup" onsubmit="return checkpass();">
+					<form action="" method="POST">
 						<p style="font-size:16px; color:green" align="center"> <?php if($msg1){
-    echo $msg1;
-  }  ?> </p>	<p style="font-size:16px; color:red" align="center"> <?php if($msg){
-    echo $msg;
-  }  ?> </p>
-						<fieldset>
-							<div class="form-group">
-								<input class="form-control" placeholder="Full Name" name="name" type="text" required="true">
-							</div>
-							<div class="form-group">
-								<input class="form-control" placeholder="E-mail" name="email" type="email" required="true">
-							</div>
-							<div class="form-group">
-								<input type="text" class="form-control" id="mobilenumber" name="mobilenumber" placeholder="Mobile Number" maxlength="10" pattern="[0-9]{10}" required="true">
-							</div>
-							<div class="form-group">
-								<input class="form-control" placeholder="Password" name="password" type="password" value="" required="true">
-							</div>
-							<div class="form-group">
-								<input type="password" class="form-control" id="repeatpassword" name="repeatpassword" placeholder="Repeat Password" required="true">
-							</div>
-							<div class="checkbox">
-								<button type="submit" value="submit" name="submit" class="btn btn-primary">Register</button><span style="padding-left:250px">
-								<a href="index.php" class="btn btn-primary">Login</a></span>
-							</div>
-							 </fieldset>
-					</form>
+							echo $msg1;
+							}  ?> </p>	<p style="font-size:16px; color:red" align="center"> <?php if($msg){
+							echo $msg;
+							}  ?> </p>
+					<div class="col-md-6">
+						<label for="name" class="form-label">User Name:</label>
+						<input class="form-control" placeholder="Full Name" name="name" type="text" required="true">
+					</div>
+					  
+					 
+					<div class="col-md-6">
+					  <label  class="form-label">E-mail:</label>
+					  <input class="form-control" placeholder="E-mail" name="email" type="email" required="true">					  
+					</div>
+					<div class="col-md-6">
+						<label  class="form-label">User Id:</label>
+						<input type="text" class="form-control" id="userid" name="userid" placeholder="User Id" maxlength="10" 
+						 required="true">					  
+					  </div>
+					  <div class="col-md-6">
+						<label class="form-label">Tel:</label>
+						<input type="text" class="form-control" id="mobilenumber" name="mobilenumber"
+						 placeholder="Mobile Number" maxlength="10" pattern="[0-9]{10}" required="true">					  
+					  </div>
+					  <div class="col-md-6">
+						<label class="form-label">Gender:</label>
+						<input type="text" class="form-control"  name="gender" placeholder="Gender" maxlength="10" required="true">					  
+					  </div>
+					  <div class="col-md-6">
+						<label  class="form-label">Location:</label>
+						<input type="text" class="form-control" id="" name="location" placeholder="Location"   required="true">					  
+					  </div>
+					  <div class="col-md-6">
+						<label class="form-label">User Id:</label>
+						<input type="text" class="form-control" id="userid" name="userid" placeholder="User Id" maxlength="10" 
+						 required="true">					  
+					  </div>
+					  
+					  <hr>
+					  <div class="col-md-3 ">
+						<i>Verify before sumbitting</i>
+						
+						<button type="submit" value="login" name="login" class="btn bg-info mb-3">login</button>
+        
+						<button type="submit" name="register" class="btn bg-light border border-info border-3 mb-3 float-end"><a href="register.php">Register</a></button>
+					</div>
+				</form>
 				</div>
-			</div>
-		</div><!-- /.col-->
-	</div><!-- /.row -->	
+				
+			 	</div>
+			</div><!-- /.col-->
 	
+	
+			
+		</div><!-- /.row -->	
+	</div>
+</div>
 
 <script src="js/jquery-1.11.1.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
