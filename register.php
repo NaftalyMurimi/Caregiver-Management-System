@@ -16,7 +16,7 @@ $msg="This email  associated with another account";
     }
     else{
 
-    $query=mysqli_query($con, "insert into users(FullName, Phone_no, Email,  Password) value('$fname', '$mobno', '$email', '$password' )");
+    $query=mysqli_query($con, "insert into users(Username, Phone_no, Email,  Password) value('$fname', '$mobno', '$email', '$password' )");
     if ($query) {
     $msg1="You have successfully registered";
   }

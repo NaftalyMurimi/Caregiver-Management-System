@@ -52,6 +52,7 @@ $username=$row['Username'];
                     </div>
                 </div>
               <hr>
+              <a href="dashboard.php" class="list-group-item-info"><i class="bi bi-speedometer2"></i> &nbsp;</i>Dashboard</a>
                 <a href="addCLIENTS.php" class="list-group-item-primary"><i class="bi bi-person-plus-fill"> &nbsp;</i>Add clients</a>
                 <a href="viewCLIENTS.php" class="list-group-item-secondary"><i class="bi bi-person-lines-fill"> &nbsp;</i>View Clients</a>
                 <a href="viewUSERS.php" class="list-group-item-success"><i class="bi bi-person-video3"> &nbsp; </i>View Users</a>

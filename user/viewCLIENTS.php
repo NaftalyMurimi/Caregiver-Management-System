@@ -17,8 +17,8 @@ $result = mysqli_query($con,"SELECT * FROM clients");
 
 <div class="row">
     <?php include_once "sidebaruser.php" ?>
-    <div class="col-10 bg-success">
-    <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+    <div class="col-10 list-group-item-primary">
+    <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main ">
         
     <div class="row ">
             <div class="col-lg-12 ">
@@ -46,16 +46,21 @@ while($row = mysqli_fetch_array($result)) {
   <div class="row g-0">
     <div class="col-md-4">
       <img src="<?php echo $row['picture']; ?>" class="img-fluid rounded-start" alt="...">
+       <!-- Button trigger modal -->
+       <button type="button" class="btn btn-primary mt-3 mx-3">
+       Apply
+      </button>
     </div>
     <div class="col-md-8">
       <div class="card-body">
-        <h5 class="card-title"><?php echo $row ['username'];?></h5>
-        <p class="card-text"><?php echo $row ['phone'];?></p>
-        <p class="card-text"><?php echo $row ['age'];?></p>
-        <p class="card-text"><?php echo $row ['gender'];?></p>
-        <p class="card-text"><?php echo $row ['description'];?></p>
-        <p class="card-text"><small class="text-muted"><?php echo $row ['location'];?></small></p>
+        <h5 class="card-title"><i><b>Name:</b></i>&nbsp <?php echo $row ['username'];?></h5>
+        <p class="card-text"><i><b>Tel:</b></i>&nbsp <?php echo $row ['phone'];?></p>
+        <p class="card-text"><i><b>Age:</b></i>&nbsp <?php echo $row ['age'];?></p>
+        <p class="card-text"><i><b>Gender:</b></i>&nbsp <?php echo $row ['gender'];?></p>
+        <p class="card-text"><i><b>Description:</b></i>&nbsp <?php echo $row ['description'];?></p>
+        <p class="card-text"><i><b>Location:</b></i>&nbsp <small class="text-muted"><?php echo $row ['location'];?></small></p>
       </div>
+     
     </div>
   </div>
 </div>

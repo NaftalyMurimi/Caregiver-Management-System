@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-<div class="container-fluid bg-light mb-0">
+<div class="container-fluid list-group-item-primary mb-0">
 <!-- <div class="row align-items-center "> -->
 			<h2 class="text-center "> Care Giving Management System</h2>
 		</div>

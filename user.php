@@ -33,7 +33,7 @@ if(isset($_POST['login']))
   <hr>
   <div class="container">
     <div class="row justify-content-center">
-      <div class="col-5 bg-secondary rounded">
+      <div class="col-5 list-group-item-primary rounded">
         
         <h2 class="text-center">User Login</h2>
         <hr>
@@ -54,6 +54,7 @@ if(isset($_POST['login']))
 
           <button type="submit" value="login" name="login" class="btn bg-info mb-3">login</button>
         
+          <button type="submit" name="register" class="btn bg-light border border-info border-3 mb-3 float-end"><a href="register.php">Register</a></button>
         </form> 
         
       </div>

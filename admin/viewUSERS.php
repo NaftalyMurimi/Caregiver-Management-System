@@ -17,8 +17,8 @@ $result = mysqli_query($con,"SELECT * FROM users");
 
 <div class="row">
     <?php include_once "sidebar.php" ?>
-    <div class="col-10 bg-success">
-    <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+    <div class="col-10 list-group-item-primary">
+    <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main ">
         
     <div class="row ">
             <div class="col-lg-12 ">
@@ -55,7 +55,7 @@ while($row = mysqli_fetch_array($result)) {
  
             
         <td><?php echo $row["id"]; ?></td>
-        <td><?php echo $row ['FullName'];?></td>
+        <td><?php echo $row ['Username'];?></td>
         <td><?php echo $row ['Email'];?></td>
         <td><?php echo $row ['Phone_no'];?></td>
         <td><?php echo $row ['UserID'];?></td>
