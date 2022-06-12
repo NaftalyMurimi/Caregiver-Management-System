@@ -2,12 +2,17 @@
 session_start();
 error_reporting(0);
 include('includes/dbconnection.php');
-if(isset($_POST['submit']))
+if(isset($_POST['register']))
   {
-    $fname=$_POST['name'];
+    $fname=$_POST['username'];
     $mobno=$_POST['mobilenumber'];
     $email=$_POST['email'];
-    $password=md5($_POST['password']);
+	$gender=$_POST['gender'];
+	$age=$_POST['age'];
+	$userid=$_POST['userid'];
+	$location=$_POST['location'];
+	$language=$_POST['language'];
+    // $password=md5($_POST['password']);
 
     $ret=mysqli_query($con, "select Email from users where Email='$email' ");
     $result=mysqli_fetch_array($ret);
@@ -16,7 +21,8 @@ $msg="This email  associated with another account";
     }
     else{
 
-    $query=mysqli_query($con, "insert into users(Username, Phone_no, Email,  Password) value('$fname', '$mobno', '$email', '$password' )");
+    $query=mysqli_query($con, "INSERT INTO `users`(`id`, `Username`, `Email`, `UserID`, `Phone_no`, `Gender`, `Age`, `Language`, `Location`)
+	 VALUES ('null','$fname','$email','$userid','$mobno','$gender','$age','$language','$location')");
     if ($query) {
     $msg1="You have successfully registered";
   }
@@ -40,16 +46,7 @@ $msg="This email  associated with another account";
 	<link href="css/datepicker3.css" rel="stylesheet">
 	<link href="css/styles.css" rel="stylesheet">
 	<script type="text/javascript">
-function checkpass()
-{
-if(document.signup.password.value!=document.signup.repeatpassword.value)
-{
-alert('Password and Repeat Password field does not match');
-document.signup.repeatpassword.focus();
-return false;
-}
-return true;
-} 
+ 
 
 </script>
 <body>
@@ -61,52 +58,52 @@ return true;
 				<div class="panel-heading">Sign Up</div>
 				<div class="panel-body">
 					<form action="" method="POST">
-						<p style="font-size:16px; color:green" align="center"> <?php if($msg1){
-							echo $msg1;
-							}  ?> </p>	<p style="font-size:16px; color:red" align="center"> <?php if($msg){
-							echo $msg;
-							}  ?> </p>
+						<p style="font-size:16px; color:green" align="center"> <?php if($msg1){echo $msg1;}  ?> </p>
+						<p style="font-size:16px; color:red" align="center"> <?php if($msg){echo $msg;}  ?> </p>
 					<div class="col-md-6">
 						<label for="name" class="form-label">User Name:</label>
-						<input class="form-control" placeholder="Full Name" name="name" type="text" required="true">
+						<input class="form-control" placeholder="Full Name" name="username" type="text" required="true">
 					</div>
-					  
-					 
 					<div class="col-md-6">
 					  <label  class="form-label">E-mail:</label>
 					  <input class="form-control" placeholder="E-mail" name="email" type="email" required="true">					  
 					</div>
 					<div class="col-md-6">
 						<label  class="form-label">User Id:</label>
-						<input type="text" class="form-control" id="userid" name="userid" placeholder="User Id" maxlength="10" 
-						 required="true">					  
+						<input type="number" class="form-control" id="userid" name="userid" placeholder="User Id" required="true">					  
 					  </div>
 					  <div class="col-md-6">
 						<label class="form-label">Tel:</label>
-						<input type="text" class="form-control" id="mobilenumber" name="mobilenumber"
+						<input type="number" class="form-control" name="mobilenumber"
 						 placeholder="Mobile Number" maxlength="10" pattern="[0-9]{10}" required="true">					  
 					  </div>
 					  <div class="col-md-6">
 						<label class="form-label">Gender:</label>
-						<input type="text" class="form-control"  name="gender" placeholder="Gender" maxlength="10" required="true">					  
+						<input type="text" class="form-control"  name="gender" placeholder="Gender"  required="true">					  
+					  </div>
+					  <div class="col-md-6">
+						<label class="form-label">Age:</label>
+						<input type="number" class="form-control"  name="age" placeholder="Age"  required="true">					  
 					  </div>
 					  <div class="col-md-6">
 						<label  class="form-label">Location:</label>
 						<input type="text" class="form-control" id="" name="location" placeholder="Location"   required="true">					  
 					  </div>
 					  <div class="col-md-6">
-						<label class="form-label">User Id:</label>
-						<input type="text" class="form-control" id="userid" name="userid" placeholder="User Id" maxlength="10" 
+						<label class="form-label">Language:</label>
+						<input type="text" class="form-control" id="userid" name="language" placeholder="Fluent Languages"
 						 required="true">					  
 					  </div>
 					  
 					  <hr>
 					  <div class="col-md-3 ">
 						<i>Verify before sumbitting</i>
+						<br>
 						
-						<button type="submit" value="login" name="login" class="btn bg-info mb-3">login</button>
         
-						<button type="submit" name="register" class="btn bg-light border border-info border-3 mb-3 float-end"><a href="register.php">Register</a></button>
+						<button type="submit" value="login" name="register" class="btn bg-info mb-3">Register</button>
+						<button type="submit" value="login" name="login" class="btn bg-info mb-3">login</button>
+						
 					</div>
 				</form>
 				</div>
