@@ -63,7 +63,7 @@ while ($row=mysqli_fetch_array($ret)) {
 					</div>
 					<div class="col-md-6">
 						<label  class="form-label">User Id:</label>
-						<input type="number" class="form-control" id="userid" value="<?php  echo $row['UserID'];?>" name="userid" placeholder="User Id" required="true">					  
+						<input type="text" class="form-control" id="userid" value="<?php  echo $row['UserID'];?>" name="userid" placeholder="User Id" required="true" readonly>					  
 					  </div>
 					  <div class="col-md-6">
 						<label class="form-label">Tel:</label>

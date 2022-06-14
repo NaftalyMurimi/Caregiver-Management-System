@@ -38,6 +38,7 @@ if (mysqli_num_rows($result) > 0) {
          <table class="table table-light table-hover">
          <tr><th>S No.</th>
 <th>Name</th>
+<th>Client Id</th>
 <th>Phone</th>
 <th>Age</th>
 <th>Gender</th>
@@ -54,6 +55,7 @@ while($row = mysqli_fetch_array($result)) {
             
         <td><?php echo $row["id"]; ?></td>
         <td><?php echo $row ['username'];?></td>
+        <td><?php echo $row ['ClientID'];?></td>
         <td><?php echo $row ['phone'];?></td>
         <td><?php echo $row ['age'];?></td>
         <td><?php echo $row ['gender'];?></td>

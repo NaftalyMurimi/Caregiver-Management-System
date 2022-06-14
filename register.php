@@ -60,6 +60,28 @@ $msg="This email  associated with another account";
 					<form action="" method="POST">
 						<p style="font-size:16px; color:green" align="center"> <?php if($msg1){echo $msg1;}  ?> </p>
 						<p style="font-size:16px; color:red" align="center"> <?php if($msg){echo $msg;}  ?> </p>
+						<div class="col-md-6">
+<!-- code to generate the pass UserId -->
+<?php
+  function passFunc($len, $set = "")
+    {
+      $gen = "";
+      for($i = 0; $i < $len; $i++)
+        {
+          $set = str_shuffle($set);
+          $gen.= $set[0]; 
+        }
+      return $gen;
+    } 
+    
+?> 
+<!-- function to be used to generate the passwords -->
+<?php $change =  passFunc(8, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890');?> 
+						<label  class="form-label">User Id:</label>
+							
+<input class="form-control col-6"  style="width:300px;" type = "text" name="userid"  id = "pass" required="true" readonly="readonly"> <br>
+  <input type = "button" value = "Generate" onclick = "document.getElementById('pass').value = '<?php echo $change?>'">				  
+					  </div>
 					<div class="col-md-6">
 						<label for="name" class="form-label">User Name:</label>
 						<input class="form-control" placeholder="Full Name" name="username" type="text" required="true">
@@ -68,11 +90,9 @@ $msg="This email  associated with another account";
 					  <label  class="form-label">E-mail:</label>
 					  <input class="form-control" placeholder="E-mail" name="email" type="email" required="true">					  
 					</div>
-					<div class="col-md-6">
-						<label  class="form-label">User Id:</label>
-						<input type="number" class="form-control" id="userid" name="userid" placeholder="User Id" required="true">					  
-					  </div>
+					
 					  <div class="col-md-6">
+	
 						<label class="form-label">Tel:</label>
 						<input type="number" class="form-control" name="mobilenumber"
 						 placeholder="Mobile Number" maxlength="10" pattern="[0-9]{10}" required="true">					  
@@ -102,7 +122,7 @@ $msg="This email  associated with another account";
 						
         
 						<button type="submit" value="login" name="register" class="btn bg-info mb-3">Register</button>
-						<button type="submit" value="login" name="login" class="btn bg-info mb-3">login</button>
+						<button type="submit" value="login" name="login" class="btn bg-info mb-3"><a href="user.php"> Login</a></button>
 						
 					</div>
 				</form>

@@ -7,7 +7,7 @@ $result = mysqli_query($con,"SELECT * FROM clients");
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Dashboard</title>
+	<title>Job applications</title>
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
 </head>
@@ -18,17 +18,21 @@ $result = mysqli_query($con,"SELECT * FROM clients");
 <div class="row">
     <?php include_once "sidebaruser.php" ?>
     <div class="col-10 list-group-item-primary">
-    <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main ">
+    <div class=" container-fluid ">
         
-    <div class="row ">
-            <div class="col-lg-12 ">
+    <div class="row justify-content-center">
+            <div class="col-12 ">
         
     
-          <h2> Registered List</h2>
+          <i> Viable List of clients</i>
             
             </div> 
             
             <hr/>
+            <button type="button" class="btn btn-info mb-2 col-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
+       Apply
+      </button>
+
             </div>
             </h4>
      </div>
@@ -42,18 +46,18 @@ $i=0;
 while($row = mysqli_fetch_array($result)) {
 ?>  
 <div class="col-4">
+
 <div class="card mb-3" style="max-width: 540px;">
   <div class="row g-0">
     <div class="col-md-4">
       <img src="<?php echo $row['picture']; ?>" class="img-fluid rounded-start" alt="...">
        <!-- Button trigger modal -->
-       <button type="button" class="btn btn-primary mt-3 mx-3">
-       Apply
-      </button>
+       
     </div>
     <div class="col-md-8">
       <div class="card-body">
-        <h5 class="card-title"><i><b>Name:</b></i>&nbsp <?php echo $row ['username'];?></h5>
+        <h6 class="card-title"><i><b>Name:</b></i>&nbsp <?php echo $row ['username'];?></h6>
+        <p class="card-title"><i><b>Client Id:</b></i>&nbsp <?php echo $row ['ClientID'];?></p>
         <p class="card-text"><i><b>Tel:</b></i>&nbsp <?php echo $row ['phone'];?></p>
         <p class="card-text"><i><b>Age:</b></i>&nbsp <?php echo $row ['age'];?></p>
         <p class="card-text"><i><b>Gender:</b></i>&nbsp <?php echo $row ['gender'];?></p>
@@ -63,6 +67,15 @@ while($row = mysqli_fetch_array($result)) {
      
     </div>
   </div>
+  <!-- Button trigger modal -->
+<!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Launch demo modal
+</button> -->
+
+<!-- Modal -->
+<?php
+include_once 'apply.php';
+?>
 </div>
 </div>
 
@@ -99,6 +112,8 @@ else
 </div>	
 
 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+   integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
 
 </body>
 </html>

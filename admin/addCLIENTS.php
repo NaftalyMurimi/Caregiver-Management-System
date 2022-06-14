@@ -15,6 +15,7 @@ if(isset($_POST['submit'])//&&$_FILES['userfile']['size']>0
  $description = $_POST['description'];
  $age = $_POST['age'];
  $gender = $_POST['gender'];
+ $clientid = $_POST['clientid'];
  $location = $_POST['location'];
           $image= addslashes(file_get_contents($_FILES['image']['tmp_name']));
           $image_name= addslashes($_FILES['image']['name']);
@@ -24,8 +25,8 @@ if(isset($_POST['submit'])//&&$_FILES['userfile']['size']>0
           $upimage="../uploads/" . $_FILES["image"]["name"];
           
           
-          $con->query("INSERT INTO `clients`(`id`, `username`, `phone`, `age`, `gender`, `location`, `description`, `picture`)
-		   VALUES ('null',' $username',' $phone',' $age','$gender','$location','$description','$upimage')")or die(mysql_error());
+          $con->query("INSERT INTO `clients`(`id`, `username`, `phone`, `age`, `gender`, `location`, `description`, `picture`, `ClientID`)
+		   VALUES ('null',' $username',' $phone',' $age','$gender','$location','$description','$upimage','$clientid')")or die(mysql_error());
         $msg="You have submitted the clients successfully.";
         }
         else { 
@@ -100,13 +101,34 @@ if(isset($_POST['submit'])//&&$_FILES['userfile']['size']>0
     <input type="text" class="form-control"  name="location" required="true">
   </div>
   
+  
+  <div class="col-5 float-end">
+<!-- code to generate the pass UserId -->
+<?php
+  function passFunc($len, $set = "")
+    {
+      $gen = "";
+      for($i = 0; $i < $len; $i++)
+        {
+          $set = str_shuffle($set);
+          $gen.= $set[0]; 
+        }
+      return $gen;
+    } 
+    
+?> 
+<!-- function to be used to generate the passwords -->
+<?php $change =  passFunc(8, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890');?> 
+            <label  class="form-label">User Id:</label>
+              
+<input class="form-control col-5"  style="width:300px;" type = "text" name="clientid"  id = "pass" required="true" readonly="readonly"> <br>
+  <input type = "button" value = "Generate" onclick = "document.getElementById('pass').value = '<?php echo $change?>'">         
+            </div>
+  
   <div class="col-5">
     <label for="age" class="form-label">Health Description:</label>
     <textarea class="form-control" id="" rows="4" name="description" required="true"></textarea>
   </div>
-  
-  
-  
   <div class="col-md-5 my-3">
     <button type="submit" class="btn btn-primary" name ="submit">Submit </button>
   </div>
