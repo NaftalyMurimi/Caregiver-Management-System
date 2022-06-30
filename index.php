@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Doctor Login</title>
+	<title>CGMS</title>
 	<link href="css/bootstrap.min.css" rel="stylesheet">
 	
 	
@@ -22,7 +22,8 @@
 					<form >
 					 <div class="form-group">
 								<select class="form-control" onchange = "page(this.value)" >
-                                <option value = "admin.php">System Admin</option>
+                                <option value = "admin.php">..............</option>
+								<option value = "admin.php">System Admin</option>
 		                        <option value = "user.php">System User</option>
 
 								</select>

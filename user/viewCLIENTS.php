@@ -29,9 +29,7 @@ $result = mysqli_query($con,"SELECT * FROM clients");
             </div> 
             
             <hr/>
-            <button type="button" class="btn btn-info mb-2 col-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
-       Apply
-      </button>
+            <button type="button" class="btn btn-info mb-2 col-3"> <a href="apply.php">Click to Apply</a></button>
 
             </div>
             </h4>
@@ -73,9 +71,10 @@ while($row = mysqli_fetch_array($result)) {
 </button> -->
 
 <!-- Modal -->
-<?php
-include_once 'apply.php';
+<!-- <?php
+//include_once 'apply.php';
 ?>
+<a href="weeuh.php">weeuh</a> -->
 </div>
 </div>
 

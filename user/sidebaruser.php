@@ -55,7 +55,7 @@ $username=$row['Username'];
               <hr>
               <a href="dashboard.php" class="list-group-item-secondary"><i class="bi bi-person-lines-fill"> &nbsp;</i>Dashboard</a>
                 <a href="viewCLIENTS.php" class="list-group-item-secondary"><i class="bi bi-person-lines-fill"> &nbsp;</i>View Clients</a>
-                <a href="viewUSERS.php" class="list-group-item-success"><i class="bi bi-person-video3"> &nbsp; </i>Job Requests</a>
+                <a href="jobREQUEST.php" class="list-group-item-success"><i class="bi bi-person-video3"> &nbsp; </i>Job Requests</a>
                 <a href="user-profile.php" class=" list-group-item-danger"> <i class="bi bi-person-bounding-box">&nbsp;</i> Profile</a>
                 <a href="../logout.php" class=" list-group-item-warning"> <i class="bi bi-box-arrow-left">&nbsp;</i>Log Out</a>
             </div>

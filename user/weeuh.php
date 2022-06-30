@@ -42,7 +42,6 @@ $loginid=$_SESSION['userid'];
 <div class="row">
     <?php include_once "sidebaruser.php" ?>
     <div class="col-10 list-group-item-primary">
-    <div class="modal-body">
     <form method="POST">
           <div class="col-12">
             <p style="font-size:16px; color:red" align="center"> <?php if($msg){
@@ -67,9 +66,8 @@ $loginid=$_SESSION['userid'];
             <label  class="form-label">Client name:</label>
             <input type="text" class="form-control" name="clientname" placeholder="Client Name" required="true" >           
             </div>
-       <hr>
-						<button type="submit" value="login" name="submit" class="btn bg-info mb-3">Submit</button>
-						</div>	
+						<button type="submit" value="login" name="submit" class="btn bg-info mb-3">Update</button>
+						
 					</div>
 				</form>
            
