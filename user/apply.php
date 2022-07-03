@@ -13,10 +13,10 @@ $loginid=$_SESSION['userid'];
  $useridnumber = $_POST['useridnumber'];
  $clientid = $_POST['clientid'];
  $clientname = $_POST['clientname'];  
+ $jobstatus = $_POST['jobstatus'];  
 	
-	
- $query=mysqli_query($con, "INSERT INTO `jobs`(`id`, `userid`, `UserName`, `UserIDNO`, `ClientName`, `ClientID`) 
-    VALUES ('null','$loginid','$username','$useridnumber','$clientname','$clientid')");
+ $query=mysqli_query($con, "INSERT INTO `jobs`(`id`, `userid`, `UserName`, `UserIDNO`, `ClientName`, `ClientID`, `Status`) 
+    VALUES ('null','$loginid','$username','$useridnumber','$clientname','$clientid','$jobstatus')");
     if ($query) {
     $msg="User profile has been updated.";
   }
@@ -45,7 +45,7 @@ $loginid=$_SESSION['userid'];
     <div class="modal-body">
     <form method="POST">
           <div class="col-12">
-            <p style="font-size:16px; color:red" align="center"> <?php if($msg){
+            <p style="font-size:16px; color:green" align="center"> <?php if($msg){
             echo $msg;}  ?> </p>
             <p style="font-size:16px; color:red" align="center"> <?php if($msg1){
             echo $msg1;}  ?> </p>
@@ -63,6 +63,9 @@ $loginid=$_SESSION['userid'];
             <label  class="form-label">Client Id:</label>
             <input class="form-control" placeholder="Client Id"  name="clientid" type="text" required="true" >            
           </div>
+          <div class="col-md-12">
+            <input type="text" class="form-control" hidden name="jobstatus" placeholder="Client Name" required="true" value="Waiting" >           
+            </div>
           <div class="col-md-12">
             <label  class="form-label">Client name:</label>
             <input type="text" class="form-control" name="clientname" placeholder="Client Name" required="true" >           

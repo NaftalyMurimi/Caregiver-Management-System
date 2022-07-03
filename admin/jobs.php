@@ -1,19 +1,13 @@
 <?php
-session_start();
-error_reporting(0);
-include('../includes/dbconnection.php');
-if (strlen($_SESSION['userid']==0)) {
-  header('location:logout.php');
-  } else{
-    
-  }
-  ?>
+include_once '../includes/dbconnection.php';
+$result = mysqli_query($con,"SELECT * FROM jobs");
+?>
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Dashboard</title>
+	<title>CGMS</title>
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
 </head>
@@ -22,49 +16,67 @@ if (strlen($_SESSION['userid']==0)) {
 <div class="container-fluid">
 
 <div class="row">
-    <?php include_once "sidebaruser.php" ?>
+    <?php include_once "sidebar.php" ?>
     <div class="col-10 list-group-item-primary">
     <div class="modal-body">
     
     <div class="col-md-12">
-							
+    <?php
+if (mysqli_num_rows($result) > 0) {
+    
+?> 					
 		<div class="table-responsive">
             <table class="table table-bordered  table-hover">
               <thead>
                 <tr>
                   <th>S.NO</th>
+                  <th>Applicant Name</th>
+                  <th>Applicant ID</th>
                   <th>Client Name</th>
                   <th>Client ID</th>
                   <th>Job Status</th>
                   <th>Action</th>
                 </tr>
               </thead>
-              <?php
-$userid=$_SESSION['userid'];
-$ret=mysqli_query($con,"select * from jobs where UserID='$userid'");
-$cnt=1;
-while ($row=mysqli_fetch_array($ret)) {
-
-?>
+<?php
+while($row = mysqli_fetch_array($result)) {
+    $id=$row['id'];
+    $cnt=$cnt+1; 
+?>    
               <tbody>
                 <tr>
                   <td><?php echo $cnt;?></td>
-              
+                  <td><?php  echo $row['UserName'];?></td>
+                  <td><?php  echo $row['UserIDNO'];?></td>
                   <td><?php  echo $row['ClientName'];?></td>
                   <td><?php  echo $row['ClientID'];?></td>
-				          <td><?php  echo $row['Status'];?></td>
-                  <td><a href="viewAPPOINTMENTS.php?delid=<?php echo $row['id'];?>">Delete/Cancel</a>
+				  <td><?php  echo $row['Status'];?></td>
+                  
+                    <!-- create a form to approve or decline job applications -->
+                     <td style="text-align:center">
+                    <a href="jobValidate.php?id=<?php echo $row["id"]; ?>" class='btn btn-success btn-outline'>Validate</a>
+
+                </td>
                 </tr>
-                <?php 
-$cnt=$cnt+1;
-}?>
-               
+                <?php
+            $i++;
+            }
+            ?>
+</table>
+ <?php
+}
+else
+{
+    echo "No result found";
+}
+?>
+
               </tbody>
             </table>
           </div>
-						</div>      
+		</div>      
 	
-				
+    </div>
 			 	
  
 
@@ -77,7 +89,7 @@ $cnt=$cnt+1;
               
             </div>
 
-         
+	
 </div>	
 
 
